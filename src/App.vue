@@ -4,24 +4,7 @@
 
 
 
-<style>
-* {
-  padding: 0px;
-  margin: 0px;
-}
-
-svg {
-  width: 1em;
-  height: 1em;
-}
-
-
-html,
-body,
-#app,
-.common-layout,
-.el-container,
-.el-menu {
-  height: 100% !important;
-}
+<style lang="less">
+@import '../src/styele/base.less';
+@import '../src/styele/ui.less';
 </style>

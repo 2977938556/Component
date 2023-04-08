@@ -2,11 +2,11 @@
     <el-menu class="el-menu-vertical-demo" :collapse="collapse" default-active="2">
         <el-menu-item index="1">
             <el-icon-menu></el-icon-menu>
-            <span>Navigator Four</span>
+            <span>首页</span>
         </el-menu-item>
         <el-menu-item index="2">
             <el-icon-menu></el-icon-menu>
-            <span>Navigator Four</span>
+            <span>图标组件</span>
         </el-menu-item>
         <el-menu-item index="3">
             <el-icon-menu></el-icon-menu>

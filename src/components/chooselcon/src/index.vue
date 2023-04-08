@@ -3,14 +3,37 @@
         <el-button type="primary" @click="handClick">
             <slot></slot>
         </el-button>
+
         <!-- 弹出框 -->
-        <el-dialog :title="title" width="30%" v-model="visibleBackUp"></el-dialog>
+        <div class="el-overlay-icon-fors ">
+            <el-dialog :title="title" width="30%" v-model="visibleBackUp">
+                <!-- 这里会渲染图标组件 -->
+                <div class="cantainer" @click="CopyIcon">
+                    <div class="item" v-for="(item, index) in Object.keys(Icons)" :key="index" :icons="item">
+                        <component class="icons" :is="`el-icon-${toLine(item)}`" :icons="item"></component>
+                        <span :icons="item">{{ item }}</span>
+                    </div>
+                </div>
+            </el-dialog>
+        </div>
 
     </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
+
+//导入图标
+import * as Icons from '@element-plus/icons-vue'
+import { toLine } from '@/utils/'
+
+
+// 导入复制函数
+import { userCopy } from '@/hooks/userCopy/index'
+
+// 导入提示框
+import { ElMessage } from 'element-plus'
+
 
 
 
@@ -49,6 +72,60 @@ watch(() => visibleBackUp.value, (newVal) => {
 })
 
 
+
+
+// 复制icon 方法已经被抽离出去了
+let CopyIcon = (e: Event) => {
+    userCopy(e).then((massage) => {
+        // 消息提示
+        ElMessage({
+            message: `${massage}`,
+            grouping: true,
+            type: 'success',
+        })
+    })
+}
+
+
+
+
 </script>
 
-<style></style>
+<style lang="less" scoped>
+.cantainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+
+    .item {
+        width: 25%;
+        height: 80px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s;
+        cursor: pointer;
+
+    }
+
+    .item:hover {
+        border: 2px solid rgba(13, 126, 255, 0.973);
+
+        .icons {
+            font-size: 24px;
+            color: rgba(13, 126, 255, 0.973);
+        }
+
+        span {
+            color: rgba(13, 126, 255, 0.973);
+        }
+    }
+
+    .icons {
+        font-size: 24px;
+    }
+}
+</style>
