@@ -10,7 +10,11 @@
         </el-menu-item>
         <el-menu-item index="3">
             <el-icon-menu></el-icon-menu>
-            <span>Navigator Four</span>
+            <span>地区组件</span>
+        </el-menu-item>
+        <el-menu-item index="4">
+            <el-icon-menu></el-icon-menu>
+            <span>趋势组件</span>
         </el-menu-item>
     </el-menu>
 </template>

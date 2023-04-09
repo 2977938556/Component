@@ -132,8 +132,6 @@ watch(() => area.value, (newvalue) => {
             city: cityData,
             area: areaData
         })
-
-
     }
 
 

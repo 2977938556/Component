@@ -2,3 +2,16 @@
   height: 500px;
   overflow-y: auto;
 }
+.notification-diolgo .el-tabs__nav-wrap {
+  display: flex;
+}
+.notification-diolgo .el-tabs__nav-scroll {
+  width: 100%;
+  display: flex;
+}
+.notification-diolgo .el-tabs__nav-scroll .el-tabs__nav {
+  flex: 1;
+}
+.notification-diolgo .el-tabs__nav-scroll .el-tabs__nav .is-top {
+  flex: 1;
+}
