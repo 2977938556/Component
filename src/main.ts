@@ -20,17 +20,17 @@ import { toLine } from '@/utils/'// 转换成小写
 
 
 
+// 注册全局组件
+import UIcomponent from '@/components/index.ts'
+
 
 let app = createApp(App)
 // 配置路由
 app.use(router)
 // 配置element-plus
 app.use(ElementPlus)
-// 配置。全局图标
-// for (let i in Icons) {
-//     // 这里是循环遍历注册图标
-//     app.component(`el-icon-${toLine(i)}-string`, (Icons as any)[i])
-// }
+// 配置全局组件
+app.use(UIcomponent)
 
 
 for (const [key, component] of Object.entries(Icons)) {
